@@ -1,7 +1,10 @@
-var express = require('express');
-const res = require('express/lib/response');
-var mysql = require('mysql');
-var cors = require('cors')
+import { DB_HOST, DB_NAME, DB_PASSWORD, DB_USER, PORT } from '../config.js';
+import express  from 'express';
+import mysql from 'mysql'
+import cors from 'cors'
+
+
+
 var app = express();
 
 app.use(express.json());
@@ -9,10 +12,10 @@ app.use(cors());
 
 // establecemos los parametros
 var conexion = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'db_taskmanager'
+    host: DB_HOST,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    database:DB_NAME
 
 })
 
@@ -98,6 +101,6 @@ app.put('/api/tareas/:id', (req, res) => {
     })
 });
 
-app.listen('3000', () => {
-    console.log('servidor levantado');
+app.listen(PORT, () => {
+    console.log('servidor levantado en el puerto: '+PORT);
 })
