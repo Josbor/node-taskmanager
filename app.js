@@ -64,7 +64,7 @@ app.post('/api/tareas', (req, res) => {
         if (error) {
             throw error;
         } else {
-            res.send(results.affectedRows ? results.affectedRows : 0)
+            res.send(results)
         }
     })
 });
@@ -77,7 +77,7 @@ app.delete('/api/tareas/:id', (req, res) => {
         if (error) {
             throw error;
         } else {
-            res.send(results.affectedRows ? results.affectedRows : 0)
+            res.send(results)
         }
     })
 });
