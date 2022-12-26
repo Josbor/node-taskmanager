@@ -1,6 +1,6 @@
 import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER, PORT } from '../config.js';
 import express  from 'express';
-import mysql from 'mysql'
+import mysql from 'mysql2'
 import cors from 'cors'
 
 
